@@ -61,28 +61,27 @@ class Triangle
   end
 
   def type_definer
-    unless @angle.is_a?(Hash)
+
       begin
+        if @angle.value?(90) && @side[:b] == @side[:c]
+          'angle_90_same_cathetus'
+        elsif @angle.value?(90) && @side[:b] != @side[:c]
+          'Triangle_90_differ_cathetus'
+        elsif @angle.value?(90) && @angle.value?(60) && @side[:b] != side[:c]
+          'Triangle_90_differ_cathetus'
+        elsif @angle.value?(60) && @side[:b] == @side[:c]
+          'Right triangle'
+        elsif @angle.value?(60) && @side[:b] != @side[:c]
+          'Various side triangle 60'
+        else
+          'Various side triangle'
+        end
         raise 'variable @angle must be a Hash!!!'
       rescue StandardError => e
         puts e.message
         puts e.backtrace.inspect
       end
-    end
 
-    if @angle.value?(90) && @side[:b] == @side[:c]
-      'angle_90_same_cathetus'
-    elsif @angle.value?(90) && @side[:b] != @side[:c]
-      'Triangle_90_differ_cathetus'
-    elsif @angle.value?(90) && @angle.value?(60) && @side[:b] != side[:c]
-      'Triangle_90_differ_cathetus'
-    elsif @angle.value?(60) && @side[:b] == @side[:c]
-      'Right triangle'
-    elsif @angle.value?(60) && @side[:b] != @side[:c]
-      'Various side triangle 60'
-    else
-      'Various side triangle'
-    end
   end
 
   def square
