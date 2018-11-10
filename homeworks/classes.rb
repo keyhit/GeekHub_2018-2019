@@ -60,25 +60,57 @@ class Triangle
     @side = side
   end
 
-  def type_definer
-    unless @angle.is_a?(Hash)
-      begin
-        raise 'variable @angle must be a Hash!!!'
-      rescue StandardError => e
-        puts e.message
-        puts e.backtrace.inspect
-      end
-    end
+  def datatype_error
+    raise 'Variable @angle must be a Hash!!!' unless @angle.is_a?(Hash)
+  end
 
-    if @angle.value?(90) && @side[:b] == @side[:c]
+  def angle_value_90
+    @angle.value?(90)
+  end
+
+  def angle_value_60
+    @angle.value?(60)
+  end
+
+  def same_sides
+    @side[:b] == @side[:c]
+  end
+
+  def differ_sides
+    @side[:b] != @side[:c]
+  end
+
+  def angle_value_90_same_sides
+    angle_value_90 && same_sides
+  end
+
+  def angle_value_90_differ_sides
+    angle_value_90 && differ_sides
+  end
+
+  def angle_value_90_angle_value_60_differ_sides
+    angle_value_90 && angle_value_60 && differ_sides
+  end
+
+  def angle_value_60_same_sides
+    angle_value_60 && same_sides
+  end
+
+  def angle_value_60_differ_sides
+    angle_value_60 && differ_sides
+  end
+
+  def type_definer
+    datatype_error
+    if angle_value_90_same_sides
       'angle_90_same_cathetus'
-    elsif @angle.value?(90) && @side[:b] != @side[:c]
+    elsif angle_value_90_differ_sides
       'Triangle_90_differ_cathetus'
-    elsif @angle.value?(90) && @angle.value?(60) && @side[:b] != side[:c]
+    elsif angle_value_90_angle_value_60_differ_sides
       'Triangle_90_differ_cathetus'
-    elsif @angle.value?(60) && @side[:b] == @side[:c]
+    elsif angle_value_60_same_sides
       'Right triangle'
-    elsif @angle.value?(60) && @side[:b] != @side[:c]
+    elsif angle_value_60_differ_sides
       'Various side triangle 60'
     else
       'Various side triangle'
