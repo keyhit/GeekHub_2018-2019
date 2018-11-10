@@ -97,7 +97,7 @@ puts "----| Execution 5 | of task #{task} -----".white.on_black
 side = 5
 
 sides_length = { a: side, b: side, c: side }
-angle = 60
+angle = { a: 60 }
 
 triangle = Triangle.new(angle, sides_length)
 square = triangle.square
