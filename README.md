@@ -10,3 +10,5 @@
 [Homework 5](https://docs.google.com/forms/d/e/1FAIpQLSfv3HGPW18ujXBsBfuHiLzr9fgqKOwyn1tN9ONLOb9QHTLPNQ/viewform "Will opened in this tab")
 
 [Homework 6](https://docs.google.com/forms/d/e/1FAIpQLSc6v1EP3s1cWcbw5xGhSEFu0l98dNFYkcitXfuPCdFSYOlP3A/viewform "Will opened in this tab")
+
+[Homework 7](https://docs.google.com/forms/d/e/1FAIpQLScaa6pmmfej-j7c_EweGsm4NUqqqs2qJAJo2EstmcuIsw0GwA/viewform "Will opened in this tab")
